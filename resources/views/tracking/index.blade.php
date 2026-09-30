@@ -9,7 +9,7 @@
     $locale = app()->getLocale();
 @endphp
 
-<div class="page" style="background:var(--bg)">
+<div class="page page-public" style="background:var(--bg)">
     <div class="container" style="padding-top:40px;padding-bottom:24px">
         <div class="public-header">
             <a href="{{ route('home') }}" class="brand">
@@ -79,6 +79,7 @@
                         <p class="eyebrow">{{ __('tracking.package_label') }}</p>
                         <p class="value value-mono">{{ $result->tracking_number }}</p>
                     </div>
+                    <span class="badge badge-{{ $result->status->value }}">{{ $result->status->label() }}</span>
                 </div>
 
                 <div class="detail-grid">
@@ -94,7 +95,7 @@
 
                 <ol class="timeline">
                     @foreach ($steps as $index => $step)
-                        <li class="timeline-step {{ $index <= $currentIndex ? 'done' : '' }}">
+                        <li class="timeline-step {{ $index <= $currentIndex ? 'done' : '' }} {{ $index === $currentIndex ? 'current' : '' }}">
                             <span class="timeline-dot">
                                 @if ($index <= $currentIndex)
                                     <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>

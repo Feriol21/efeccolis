@@ -7,6 +7,7 @@ enum PackageStatus: string
     case Demarre = 'demarre';
     case EnDouane = 'en_douane';
     case EnTransit = 'en_transit';
+    case ReglementFinal = 'reglement_final';
     case Livre = 'livre';
 
     public function label(): string
@@ -20,6 +21,7 @@ enum PackageStatus: string
             self::Demarre => 'Démarré',
             self::EnDouane => 'En douane',
             self::EnTransit => 'En transit',
+            self::ReglementFinal => 'Règlement final',
             self::Livre => 'Livré',
         };
     }
@@ -30,6 +32,7 @@ enum PackageStatus: string
             self::Demarre => 'Pokrenuto',
             self::EnDouane => 'Carinjenje',
             self::EnTransit => 'U tranzitu',
+            self::ReglementFinal => 'Konačno plaćanje',
             self::Livre => 'Isporučeno',
         };
     }
